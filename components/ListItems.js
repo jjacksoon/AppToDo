@@ -14,7 +14,12 @@ const ListItems = ({todos, setTodos, handleTriggerEdit}) => {
   
   const[swipeRow, setSwipeRow] = useState(null);
 
-
+  const handleDeleteTodo = (rowMap, rowKey) => {
+    const newTodos = [...todos];
+    const todoIndex = todos.findIndex((todo) => todo.key=== rowKey);
+    newTodos.splice(todoIndex,1);
+    setTodos(newTodos);
+  }
 
   return(
     <>
@@ -41,7 +46,8 @@ const ListItems = ({todos, setTodos, handleTriggerEdit}) => {
           return(
             <ListViewHidden>
               <HiddenButton
-                onPress={() => {}}
+                onPress={() => {
+                  handleDeleteTodo(rowMap, data.item.key)}}
               >
                 <Entypo name='trash' size={25} color={colors.secondary}/>
               </HiddenButton>
