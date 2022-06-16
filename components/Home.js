@@ -41,6 +41,15 @@ const Home = () => {
     setTodoInputValue(item.title);
   }
 
+  // const handleEditTodo = (editedTodo) => {
+  //   const newTodos = [...todos];
+  //   const todoIndex = todos.findIndex((todo) => todo.key === editedTodo.key);
+  //   newTodos.splice(todoIndex, 1, editedTodo);
+  //   setTodos(newTodos);
+  //   setTodoToBeEdited(null);
+  //   setModalVisible(false);
+  // }
+
   const handleEditTodo = (editedTodo) => {
     const newTodos = [...todos];
     const todoIndex = todos.findIndex((todo) => todo.key === editedTodo.key);
@@ -49,7 +58,6 @@ const Home = () => {
     setTodoToBeEdited(null);
     setModalVisible(false);
   }
-
   return(
     <>
       <Header handleClearTodos={handleClearTodos}/>
